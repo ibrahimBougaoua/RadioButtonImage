@@ -2,9 +2,9 @@
 
 namespace IbrahimBougaoua\RadioButtonImage;
 
+use IbrahimBougaoua\RadioButtonImage\Commands\RadioButtonImageCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use IbrahimBougaoua\RadioButtonImage\Commands\RadioButtonImageCommand;
 
 class RadioButtonImageServiceProvider extends PackageServiceProvider
 {
