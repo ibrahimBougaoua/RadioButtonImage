@@ -1,24 +1,25 @@
 {
-    "name": ":vendor_slug/:package_slug",
-    "description": ":package_description",
+    "name": "ibrahimbougaoua/radiobuttonimage",
+    "description": "This is my package radiobuttonimage",
     "keywords": [
-        ":vendor_name",
+        "ibrahimBougaoua",
         "laravel",
-        ":package_slug"
+        "radiobuttonimage"
     ],
-    "homepage": "https://github.com/:vendor_slug/:package_slug",
+    "homepage": "https://github.com/ibrahimbougaoua/radiobuttonimage",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": "author@domain.com",
+            "name": "Ibrahim",
+            "email": "ibrahim.bougaoua@etu.usthb.dz",
             "role": "Developer"
         }
     ],
     "require": {
         "php": "^8.1",
-        "spatie/laravel-package-tools": "^1.14.0",
-        "illuminate/contracts": "^10.0"
+        "filament/filament": "^2.17",
+        "illuminate/contracts": "^10.0",
+        "spatie/laravel-package-tools": "^1.14.0"
     },
     "require-dev": {
         "laravel/pint": "^1.0",
@@ -35,13 +36,13 @@
     },
     "autoload": {
         "psr-4": {
-            "VendorName\\Skeleton\\": "src/",
-            "VendorName\\Skeleton\\Database\\Factories\\": "database/factories/"
+            "IbrahimBougaoua\\RadioButtonImage\\": "src/",
+            "IbrahimBougaoua\\RadioButtonImage\\Database\\Factories\\": "database/factories/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "VendorName\\Skeleton\\Tests\\": "tests/"
+            "IbrahimBougaoua\\RadioButtonImage\\Tests\\": "tests/"
         }
     },
     "scripts": {
@@ -61,10 +62,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "VendorName\\Skeleton\\SkeletonServiceProvider"
+                "IbrahimBougaoua\\RadioButtonImage\\RadioButtonImageServiceProvider"
             ],
             "aliases": {
-                "Skeleton": "VendorName\\Skeleton\\Facades\\Skeleton"
+                "RadioButtonImage": "IbrahimBougaoua\\RadioButtonImage\\Facades\\RadioButtonImage"
             }
         }
     },

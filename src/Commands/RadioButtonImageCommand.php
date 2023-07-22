@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace IbrahimBougaoua\RadioButtonImage\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class RadioButtonImageCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'radiobuttonimage';
 
     public $description = 'My command';
 
