@@ -1,19 +1,14 @@
-# This is my package radiobuttonimage
+# Radio button image
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/ibrahimbougaoua/radiobuttonimage.svg?style=flat-square)](https://packagist.org/packages/ibrahimbougaoua/radiobuttonimage)
-[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/ibrahimbougaoua/radiobuttonimage/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/ibrahimbougaoua/radiobuttonimage/actions?query=workflow%3Arun-tests+branch%3Amain)
 [![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/ibrahimbougaoua/radiobuttonimage/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/ibrahimbougaoua/radiobuttonimage/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/ibrahimbougaoua/radiobuttonimage.svg?style=flat-square)](https://packagist.org/packages/ibrahimbougaoua/radiobuttonimage)
 
-This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
+Radio button image is all about replacing traditional radio buttons with images.
 
-## Support us
-
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/RadioButtonImage.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/RadioButtonImage)
-
-We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
-
-We highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using. You'll find our address on [our contact page](https://spatie.be/about-us). We publish all received postcards on [our virtual postcard wall](https://spatie.be/open-source/postcards).
+<a href="https://www.youtube.com/watch?v=mJDevP77sY4" target="_blank">Youtube Video</a>
+<br /><br />
+[<img src="https://raw.githubusercontent.com/ibrahimBougaoua/screenshot/main/images/ibrahim-bougaoua-radio-image.jpg" width="100%">](https://www.youtube.com/watch?v=mJDevP77sY4)
 
 ## Installation
 
@@ -21,13 +16,6 @@ You can install the package via composer:
 
 ```bash
 composer require ibrahimbougaoua/radiobuttonimage
-```
-
-You can publish and run the migrations with:
-
-```bash
-php artisan vendor:publish --tag="radiobuttonimage-migrations"
-php artisan migrate
 ```
 
 You can publish the config file with:
@@ -40,6 +28,7 @@ This is the contents of the published config file:
 
 ```php
 return [
+    'path' => asset('storage'),
 ];
 ```
 
@@ -52,8 +41,11 @@ php artisan vendor:publish --tag="radiobuttonimage-views"
 ## Usage
 
 ```php
-$radioButtonImage = new IbrahimBougaoua\RadioButtonImage();
-echo $radioButtonImage->echoPhrase('Hello, IbrahimBougaoua!');
+RadioButtonImage::make('template_id')
+->label('Templates')
+->options(
+	Template::all()->pluck('image', 'id')->toArray()
+)
 ```
 
 ## Testing
@@ -61,10 +53,6 @@ echo $radioButtonImage->echoPhrase('Hello, IbrahimBougaoua!');
 ```bash
 composer test
 ```
-
-## Changelog
-
-Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
 
 ## Contributing
 
