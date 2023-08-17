@@ -1,5 +1,11 @@
+.rb-image {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
 .img-radio {
-    background-color: #fff;
     border: 1px solid #dee2e6;
     max-width: 100%;
     border-radius: 5px;
@@ -24,7 +30,7 @@
     -o-object-position: top;
     object-position: top;
     transform-origin: 50% 50%;
-    transition-duration: .2s;
-    transition: all 5s ease;
+    transition-duration: .1s;
+    transition: all 2s ease;
     width: 100%;
 }

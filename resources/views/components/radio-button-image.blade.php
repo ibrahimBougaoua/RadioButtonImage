@@ -6,10 +6,19 @@
         $statePath = $getStatePath();
     @endphp
 
+    <style>/*
+        input[name="{{ $id }}"]:checked + .img-radio {
+            background-color: rgba(var(--primary-500),var(--tw-bg-opacity));
+        }*/
+        input[name="{{ $id }}"]:checked + .img-radio {
+            background-color: rgba(var(--primary-500),var(--tw-bg-opacity));
+        }
+    </style>
+
     <ul role="list" class="grid gap-8 xl:grid-cols-4 lg:grid-cols-3">
-        @foreach ($getOptions() as $value => $label)
+        @foreach ($getOptions() as $value => $image)
             @php
-                $shouldOptionBeDisabled = $isDisabled || $isOptionDisabled($value, $label);
+                $shouldOptionBeDisabled = $isDisabled || $isOptionDisabled($value, $image);
             @endphp
             <li>
                 <label class="">
@@ -24,7 +33,8 @@
                         class="rb-image"
                     />
                     <div class="img-radio">
-                        <img src="{{ asset('storage') }}/{{ $label }}" alt="{{ $label }}" class="focus:bg-primary-500 cursor-pointer">
+                        <span class="img-radio-selected"></span>
+                        <img src="{{ asset('storage') }}/{{ $image }}" alt="{{ $value }}" class="focus:bg-primary-500 cursor-pointer">
                     </div>
                 </label>
             </li>
@@ -33,24 +43,12 @@
 </x-dynamic-component>
 
 <style>
-/* HIDE RADIO */
-.rb-image { 
-  position: absolute;
-  opacity: 0;
-  width: 0;
-  height: 0;
+.rb-image {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
 }
-
-/* IMAGE STYLES */
-.rb-image + img {
-  cursor: pointer;
-}
-
-/* CHECKED STYLES */
-.rb-image:checked + img {
-  outline: 2px solid #f00;
-}
-
 
 .img-radio {
     border: 1px solid #dee2e6;
@@ -60,6 +58,7 @@
     display: block;
     height: auto;
     margin: auto;
+    overflow: hidden;
     padding: 5px;
     position: relative;
     width: 100%;
@@ -77,8 +76,18 @@
     -o-object-position: top;
     object-position: top;
     transform-origin: 50% 50%;
-    transition-duration: .2s;
-    transition: all 5s ease;
+    transition-duration: .1s;
+    transition: all 2s ease;
     width: 100%;
+}
+
+.img-radio-selected {
+    background-color: rgba(var(--primary-500),var(--tw-bg-opacity));
+    transform: rotate(0.8648rad);
+    width: 110px;
+    height: 20px;
+    position: absolute;
+    top: 15px;
+    right: -30px;
 }
 </style>
