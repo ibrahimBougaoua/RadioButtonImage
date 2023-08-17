@@ -1,0 +1,30 @@
+.img-radio {
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    max-width: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    height: auto;
+    margin: auto;
+    padding: 5px;
+    position: relative;
+    width: 100%;
+}
+
+.img-radio:hover img {
+    -o-object-position: bottom;
+    object-position: bottom;
+}
+
+.img-radio img {
+    height: 400px;
+    -o-object-fit: cover;
+    object-fit: cover;
+    -o-object-position: top;
+    object-position: top;
+    transform-origin: 50% 50%;
+    transition-duration: .2s;
+    transition: all 5s ease;
+    width: 100%;
+}
