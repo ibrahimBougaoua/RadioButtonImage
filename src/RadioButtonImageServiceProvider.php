@@ -2,9 +2,6 @@
 
 namespace IbrahimBougaoua\RadioButtonImage;
 
-use Filament\Support\Assets\Css;
-use Filament\Support\Facades\FilamentAsset;
-use IbrahimBougaoua\RadioButtonImage\Commands\RadioButtonImageCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
@@ -20,14 +17,6 @@ class RadioButtonImageServiceProvider extends PackageServiceProvider
         $package
             ->name('radiobuttonimage')
             ->hasConfigFile()
-            ->hasViews()
-            ->hasCommand(RadioButtonImageCommand::class);
-    }
-
-    public function packageBooted(): void
-    {
-        FilamentAsset::register([
-            Css::make('radiobuttonimage-styles', __DIR__.'/../dist/css/style.css'),
-        ], 'radiobuttonimage');
+            ->hasViews();
     }
 }
