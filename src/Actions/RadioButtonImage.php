@@ -8,5 +8,5 @@ class RadioButtonImage extends Radio
 {
     protected string $view = 'radiobuttonimage::components.radio-button-image';
 
-    public $image = "sss";
+    public $image = 'sss';
 }
