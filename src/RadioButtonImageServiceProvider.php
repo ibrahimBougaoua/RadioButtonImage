@@ -19,7 +19,6 @@ class RadioButtonImageServiceProvider extends PackageServiceProvider
             ->name('radiobuttonimage')
             ->hasConfigFile()
             ->hasViews()
-            ->hasMigration('create_radiobuttonimage_table')
             ->hasCommand(RadioButtonImageCommand::class);
     }
 }

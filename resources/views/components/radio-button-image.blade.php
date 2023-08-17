@@ -1,65 +1,57 @@
-<x-dynamic-component
-    :component="$getFieldWrapperView()"
-    :id="$getId()"
-    :label="$getLabel()"
-    :label-sr-only="$isLabelHidden()"
-    :helper-text="$getHelperText()"
-    :hint="$getHint()"
-    :hint-action="$getHintAction()"
-    :hint-color="$getHintColor()"
-    :hint-icon="$getHintIcon()"
-    :required="$isRequired()"
-    :state-path="$getStatePath()"
->
-    <x-filament-support::grid
-        :default="$getColumns('default')"
-        :sm="$getColumns('sm')"
-        :md="$getColumns('md')"
-        :lg="$getColumns('lg')"
-        :xl="$getColumns('xl')"
-        :two-xl="$getColumns('2xl')"
-        direction="column"
-        :attributes="
-            \Filament\Support\prepare_inherited_attributes($attributes->merge($getExtraAttributes())->class([
-        'filament-forms-radio-component grid gap-8 sm:grid-cols-2 xl:grid-cols-5 sm:gap-y-16 xl:col-span-2'
-            ]))
-        "
-    >
-        @php
-            $isDisabled = $isDisabled();
-        @endphp
+<x-dynamic-component :component="$getFieldWrapperView()" :field="$field">
+    @php
+        $gridDirection = $getGridDirection() ?? 'column';
+        $id = $getId();
+        $isDisabled = $isDisabled();
+        $statePath = $getStatePath();
+    @endphp
 
+    <ul role="list" class="grid gap-8 xl:grid-cols-4 lg:grid-cols-3">
         @foreach ($getOptions() as $value => $label)
             @php
                 $shouldOptionBeDisabled = $isDisabled || $isOptionDisabled($value, $label);
             @endphp
-            
-            <div x-data="{ selected: null }"
-                @class([
-                    'relative cursor-pointer rounded-lg hover:bg-success-500 focus:bg-success-700 focus:ring-offset-success-700',
-                ])
-            >
-                <input
-                    name="{{ $getId() }}"
-                    id="{{ $getId() }}-{{ $value }}"
-                    type="radio"
-                    value="{{ $value }}"
-                    dusk="filament.forms.{{ $getStatePath() }}"
-                    class="hidden"
-                    {{ $applyStateBindingModifiers('wire:model') }}="{{ $getStatePath() }}"
-                    {!! $shouldOptionBeDisabled ? 'disabled' : null !!}
-                    wire:loading.attr="disabled"
-                />
-                <div class="img-radio" x-on:click="selected !== item ? selected = item : selected = null" :class="{ 'bg-success-500': selected === item }">
-                    <img src="{{ asset('storage') }}/{{ $label }}" alt="Image 1" class=" focus:bg-primary-500 cursor-pointer">
-                </div>
-            </div>
+            <li>
+                <label class="">
+                    <input
+                        @disabled($shouldOptionBeDisabled)
+                        id="{{ $id }}-{{ $value }}"
+                        name="{{ $id }}"
+                        type="radio"
+                        value="{{ $value }}"
+                        wire:loading.attr="disabled"
+                        {{ $applyStateBindingModifiers('wire:model') }}="{{ $statePath }}"
+                        class="rb-image"
+                    />
+                    <div class="img-radio">
+                        <img src="{{ asset('storage') }}/{{ $label }}" alt="{{ $label }}" class="focus:bg-primary-500 cursor-pointer">
+                    </div>
+                </label>
+            </li>
         @endforeach
-    </x-filament-support::grid>
-
+    </ul>
 </x-dynamic-component>
 
 <style>
+/* HIDE RADIO */
+.rb-image { 
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* IMAGE STYLES */
+.rb-image + img {
+  cursor: pointer;
+}
+
+/* CHECKED STYLES */
+.rb-image:checked + img {
+  outline: 2px solid #f00;
+}
+
+
 .img-radio {
     border: 1px solid #dee2e6;
     max-width: 100%;
