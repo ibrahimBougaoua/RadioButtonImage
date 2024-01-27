@@ -2,9 +2,9 @@
 
 namespace IbrahimBougaoua\RadioButtonImage\Tests;
 
+use IbrahimBougaoua\RadioButtonImage\RadioButtonImageServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
-use IbrahimBougaoua\RadioButtonImage\RadioButtonImageServiceProvider;
 
 class TestCase extends Orchestra
 {
