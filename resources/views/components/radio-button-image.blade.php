@@ -24,7 +24,7 @@
                     />
                     <span class="img-radio-selected"></span>
                     <div class="img-radio">
-                        <img src="{{ config('radiobuttonimage.path') }}/{{ $image }}" alt="{{ $value }}" class="focus:bg-primary-500 cursor-pointer">
+                        <img src="{{ asset(config('radiobuttonimage.storageName')) }}/{{ $image }}" alt="{{ $value }}" class="focus:bg-primary-500 cursor-pointer">
                     </div>
                 </label>
             </li>
